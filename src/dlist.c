@@ -6,7 +6,7 @@
 /*   By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 18:10:09 by ewatanab          #+#    #+#             */
-/*   Updated: 2021/07/08 21:11:32 by ewatanab         ###   ########.fr       */
+/*   Updated: 2021/07/09 07:32:02 by ewatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,11 @@ size_t			dlist_size(t_dlist *lst)
 		lst = lst->next;
 	}
 	return (size);
+}
+
+bool			dlist_empty(t_dlist *lst)
+{
+	if (!lst)
+		return (true);
+	return (false);
 }

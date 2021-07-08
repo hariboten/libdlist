@@ -6,7 +6,7 @@
 /*   By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:49:11 by ewatanab          #+#    #+#             */
-/*   Updated: 2021/07/08 21:42:47 by ewatanab         ###   ########.fr       */
+/*   Updated: 2021/07/09 07:35:42 by ewatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DLIST_H
 
 # include <stdlib.h>
+# include <stdbool.h>
 
 struct			s_dlist;
 typedef struct	s_dlist t_dlist;
@@ -32,6 +33,8 @@ t_dlist			*dlist_new(void *content);
 t_dlist			*dlist_front(t_dlist *lst);
 t_dlist			*dlist_back(t_dlist *lst);
 size_t			dlist_size(t_dlist *lst);
+bool			dlist_empty(t_dlist *lst);
+
 
 /*
  * push_pop.c
@@ -45,7 +48,7 @@ void			dlist_pop_back(t_dlist **lst, void (*del)(void *));
 /*
  * delete.c
  */
-void			dlist_erase(t_dlist *lst, void (*del)(void *));
+void			dlist_delone(t_dlist *lst, void (*del)(void *));
 void			dlist_clear(t_dlist **lst, void (*del)(void *));
 
 /*

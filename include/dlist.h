@@ -6,7 +6,7 @@
 /*   By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:49:11 by ewatanab          #+#    #+#             */
-/*   Updated: 2021/07/09 07:42:55 by ewatanab         ###   ########.fr       */
+/*   Updated: 2021/07/09 08:35:59 by ewatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ struct			s_dlist
  */
 t_dlist			*dlist_new(void *content);
 void			dlist_clear(t_dlist **lst, void (*del)(void *));
+t_dlist			*dlist_copy(t_dlist *lst);
 
 /*
  * ref.c

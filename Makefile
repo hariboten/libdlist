@@ -6,7 +6,7 @@
 #    By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/07 14:55:05 by ewatanab          #+#    #+#              #
-#    Updated: 2021/07/08 17:23:18 by ewatanab         ###   ########.fr        #
+#    Updated: 2021/07/08 18:07:53 by ewatanab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libdlist
 SRCDIR = ./src/
 SRCNAMES = \
 SRCS = $(addprefix $(SRCDIR), $(SRCNAMES))
+INCLUDEDIR =  ./include/
 OBJDIR = ./obj/
 OBJS = $(SRCNAMES:%.c=$(OBJDIR)%.o)
 
@@ -32,7 +33,7 @@ $(OBJDIR) :
 	mkdir -p $@
 
 $(OBJDIR)%.o : $(SRCDIR)%.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -I $(INCLUDEDIR) -o $@ $<
 
 clean :
 	rm -f $(OBJS)

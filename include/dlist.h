@@ -6,7 +6,7 @@
 /*   By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:49:11 by ewatanab          #+#    #+#             */
-/*   Updated: 2021/07/08 18:28:26 by ewatanab         ###   ########.fr       */
+/*   Updated: 2021/07/08 21:42:47 by ewatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ size_t			dlist_size(t_dlist *lst);
 void			dlist_push_front(t_dlist **lst, t_dlist *newlst);
 void			dlist_push_back(t_dlist **lst, t_dlist *newlst);
 void			dlist_insert(t_dlist **lst, t_dlist *newlst);
-void			dlist_pop_front(t_dlist *lst, void (*del)(void *));
-void			dlist_pop_back(t_dlist *lst, void (*del)(void *));
+void			dlist_pop_front(t_dlist **lst, void (*del)(void *));
+void			dlist_pop_back(t_dlist **lst, void (*del)(void *));
 
 /*
  * delete.c

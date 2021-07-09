@@ -6,7 +6,7 @@
 /*   By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 07:43:21 by ewatanab          #+#    #+#             */
-/*   Updated: 2021/07/09 07:46:17 by ewatanab         ###   ########.fr       */
+/*   Updated: 2021/07/09 09:28:05 by ewatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,22 @@ void			dlist_pop_back(t_dlist **lst, void (*del)(void *))
 		back->prev->next = NULL;
 	free(lst);
 	return ;
+}
+
+t_dlist			*dlist_erase(t_dlist **lst, void (*del)(void *))
+{
+	t_dlist	*ret;
+
+	if (!lst || !*lst)
+		return (NULL);
+	if ((*lst)->prev)
+		(*lst)->prev->next = (*lst)->next;
+	if ((*lst)->next)
+		(*lst)->next->prev = (*lst)->prev;
+	ret = (*lst)->next;
+	if (del)
+		del(*lst);
+	free(*lst);
+	*lst = ret;
+	return (ret);
 }

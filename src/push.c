@@ -6,7 +6,7 @@
 /*   By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 18:30:53 by ewatanab          #+#    #+#             */
-/*   Updated: 2021/07/09 09:07:59 by ewatanab         ###   ########.fr       */
+/*   Updated: 2021/07/09 11:49:03 by ewatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void			dlist_push_front(t_dlist **lst, t_dlist *newlst)
 {
+	t_dlist *lstfront;
+	t_dlist	*newback;
+
 	if (!lst)
 		return ;
 	if (!*lst)
@@ -21,14 +24,19 @@ void			dlist_push_front(t_dlist **lst, t_dlist *newlst)
 		*lst = newlst;
 		return ;
 	}
-	dlist_front(*lst)->prev = dlist_back(newlst);
-	dlist_back(newlst)->next = dlist_front(*lst);
+	lstfront = dlist_front(*lst);
+	newback = dlist_back(newlst);
+	lstfront->next = newback;
+	newback->prev = lstfront;
 	*lst = dlist_front(newlst);
 	return ;
 }
 
 void			dlist_push_back(t_dlist **lst, t_dlist *newlst)
 {
+	t_dlist	*newfront;
+	t_dlist *lstback;
+
 	if (!lst)
 		return ;
 	if (!*lst)
@@ -36,8 +44,10 @@ void			dlist_push_back(t_dlist **lst, t_dlist *newlst)
 		*lst = newlst;
 		return ;
 	}
-	dlist_front(newlst)->prev = dlist_back(*lst);
-	dlist_back(*lst)->next = dlist_front(newlst);
+	lstback = dlist_back(*lst);
+	newfront = dlist_front(newlst);
+	lstback->next = newfront;
+	newfront->prev = lstback;
 	return ;
 }
 

@@ -6,13 +6,18 @@
 #    By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/07 14:55:05 by ewatanab          #+#    #+#              #
-#    Updated: 2021/07/08 18:07:53 by ewatanab         ###   ########.fr        #
+#    Updated: 2021/07/09 11:32:03 by ewatanab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libdlist
+NAME = libdlist.a
 SRCDIR = ./src/
 SRCNAMES = \
+		   dlist.c \
+		   ref.c \
+		   push.c \
+		   pop.c \
+		   operate.c
 SRCS = $(addprefix $(SRCDIR), $(SRCNAMES))
 INCLUDEDIR =  ./include/
 OBJDIR = ./obj/

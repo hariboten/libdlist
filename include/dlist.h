@@ -6,7 +6,7 @@
 /*   By: ewatanab <ewatanab@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:49:11 by ewatanab          #+#    #+#             */
-/*   Updated: 2021/07/09 09:11:16 by ewatanab         ###   ########.fr       */
+/*   Updated: 2021/07/09 14:11:13 by ewatanab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ struct			s_dlist
  * dlist.c
  */
 t_dlist			*dlist_new(void *content);
-void			dlist_clear(t_dlist **lst, void (*del)(void *));
+void			dlist_destroy(t_dlist **lst, void (*del)(void *));
 t_dlist			*dlist_copy(t_dlist *lst);
 
 /*
@@ -59,5 +59,6 @@ t_dlist			*dlist_erase(t_dlist **lst, void (*del)(void *));
  * operate.c
  */
 void			dlist_swap(t_dlist *a, t_dlist *b);
+void			dlist_qsort(t_dlist *front, t_dlist *back, bool cmp(void *, void *));
 
 #endif
